@@ -118,10 +118,7 @@ For comparison, a typical PDF begins with: `25 50 44 46` which represents `%PDF`
 
 After confirming that the attachment was a ZIP-based archive, I removed the `To Hex` operation from CyberChef and saved the decoded output as `email_attachment.zip`.
 
-The archive contained a folder named `PuzzleToCoCanDa`, which contained two files:
-
-- `DaughtersCrown`
-- `GoodJobMajor`
+The archive contained a folder named `PuzzleToCoCanDa`. Initial review showed two visible files, `DaughtersCrown` and `GoodJobMajor`. After enabling **Hidden items** in File Explorer, I identified a third file named `Money.xlsx`.
 
 The files were not opened directly. Their actual file types and contents still needed to be verified.
 
