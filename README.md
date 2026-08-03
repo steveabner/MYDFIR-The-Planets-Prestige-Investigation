@@ -50,8 +50,6 @@ The Base64-encoded message body was copied into CyberChef and decoded using the 
 
 </details>
 
----
-
 ### 2. Email Header Analysis
 
 The email failed SPF authentication because the sending IP address `93[.]99[.]104[.]210` was not authorized to send email on behalf of `microapple[.]com`.
@@ -66,8 +64,6 @@ The visible sender was `billjobs[@]microapple[.]com`, while the Reply-To address
 <img width="839" height="488" alt="Email authentication results and Reply-To mismatch" src="https://github.com/user-attachments/assets/4bb8746d-3fa9-49b6-8845-778990279247" />
 
 </details>
-
----
 
 ### 3. Attachment Analysis
 
@@ -86,8 +82,6 @@ The raw email contained an attachment named `PuzzleToCoCanDa.pdf`. Its MIME head
 
 This mismatch showed that the attachment was presented as a PDF even though its file signature identified it as a ZIP-based archive. Because the file type did not match the declared extension, I continued the analysis inside an isolated Windows virtual machine.
 
----
-
 <details>
 <summary><strong>▶ Click to view attachment MIME data</strong></summary>
 
@@ -99,8 +93,6 @@ The raw email showed that the attachment was labeled as a PDF and encoded using 
 
 </details>
 
----
-
 <details>
 <summary><strong>▶ Click to expand: File-signature verification</strong></summary>
 
@@ -110,15 +102,11 @@ I copied the Base64-encoded attachment data into CyberChef and used the `From Ba
 
 <img width="1294" height="723" alt="CyberChef displaying the attachment file signature" src="https://github.com/user-attachments/assets/df7567e2-f5bb-4b23-93c9-53148c2f7063" />
 
----
-
 The decoded file began with: `50 4B 03 04`
 
 Gary Kessler’s file-signature reference identifies this as a ZIP-based archive signature.
 
 <img width="1035" height="677" alt="ZIP file signature reference" src="https://github.com/user-attachments/assets/fde67fb7-7a42-4409-9f4a-eb8c439b922d" />
-
----
 
 For comparison, a typical PDF begins with: `25 50 44 46` which represents `%PDF`.
 
