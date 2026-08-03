@@ -110,6 +110,8 @@ For comparison, a typical PDF file begins with the hexadecimal signature: `25 50
 
 This mismatch showed that the attachment was presented as a PDF even though its file signature identified it as a ZIP-based archive. Because the file type did not match the declared extension, I continued the analysis inside an isolated Windows virtual machine and extracted the archive for further inspection.
 
+---
+
 #### Archive Extraction
 
 After confirming that the attachment was a ZIP-based archive, I returned to CyberChef, removed the `To Hex` operation, and saved the decoded Base64 output as `email_attachment.zip`.
