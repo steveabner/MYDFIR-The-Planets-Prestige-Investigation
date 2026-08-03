@@ -108,7 +108,7 @@ For comparison, a typical PDF file begins with the hexadecimal signature: `25 50
 - **Identified file type:** ZIP-based archive
 - **Finding:** The attachment’s actual file type does not match its `.pdf` extension or declared MIME type.
 
-This mismatch shows that the attachment was presented as a PDF even though its file signature identified it as a ZIP-based archive. Because the actual file type did not match the declared extension, I continued to treat the attachment as suspicious and did not open it directly on the host system.
+This mismatch showed that the attachment was presented as a PDF even though its file signature identified it as a ZIP-based archive. Because the file type did not match the declared extension, I continued the analysis inside an isolated Windows virtual machine and extracted the archive for further inspection.
 
 <!--
 
