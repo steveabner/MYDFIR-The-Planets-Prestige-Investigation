@@ -110,6 +110,41 @@ For comparison, a typical PDF file begins with the hexadecimal signature: `25 50
 
 This mismatch showed that the attachment was presented as a PDF even though its file signature identified it as a ZIP-based archive. Because the file type did not match the declared extension, I continued the analysis inside an isolated Windows virtual machine and extracted the archive for further inspection.
 
+#### Archive Extraction
+
+After confirming that the attachment was a ZIP-based archive, I returned to CyberChef, removed the `To Hex` operation, and saved the decoded Base64 output as `email_attachment.zip`.
+
+> **Safety Note:** All attachment analysis and file extraction were performed inside an isolated Windows virtual machine.
+
+<img width="1514" height="843" alt="08-cyberchef-save-decoded-archive" src="https://github.com/user-attachments/assets/e5c79729-4e82-4a7a-a6ff-a381e37ce7ba" />
+
+---
+
+The downloaded archive was then extracted inside the virtual machine.
+
+<img width="1214" height="828" alt="09-email-attachment-zip-extraction" src="https://github.com/user-attachments/assets/a8252f4f-cd7c-4357-ae32-8bcf8c87169f" />
+
+---
+
+The extracted archive contained a folder named `PuzzleToCoCanDa`.
+
+<img width="1215" height="736" alt="10-extracted-puzzle-folder" src="https://github.com/user-attachments/assets/d13cd895-e272-4922-a0b5-3e1a2f1d3a68" />
+
+---
+
+Inside the folder, I identified two files:
+
+- `DaughtersCrown`
+- `GoodJobMajor`
+
+<img width="1270" height="774" alt="11-extracted-archive-files" src="https://github.com/user-attachments/assets/29f8aa77-a594-4bf8-aee7-21810d2c1a6a" />
+
+---
+
+At this stage, the files were not opened directly. Their actual file types and contents still needed to be verified before further analysis.
+
+
+
 <!--
 
 ### 5. Findings
