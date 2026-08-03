@@ -64,6 +64,12 @@ The decoded message contained a ransom demand and instructed the recipient to so
 
 ### 2. Email Header Analysis
 
+The email headers showed that the message failed SPF authentication. The sending IP address `93[.]99[.]104[.]210` was not authorized to send email on behalf of `microapple[.]com`.
+
+The visible sender was `billjobs[@]microapple[.]com`, while the Reply-To address was `negeja3921[@]pashter[.]com`, indicating that replies would be redirected to a different domain.
+
+<img width="839" height="488" alt="03-email-header-authentication-results" src="https://github.com/user-attachments/assets/4bb8746d-3fa9-49b6-8845-778990279247" />
+
 
 <!--
 
