@@ -22,6 +22,7 @@ The investigation begins with an analysis of that email to determine whether it 
 
 ## Tools Used
 
+- Windows 11 Virtual Machine
 - Notepad++
 - CyberChef
 - Gary Kessler's File Signature Database
@@ -72,32 +73,29 @@ The visible sender was `billjobs[@]microapple[.]com`, while the Reply-To address
 <img width="839" height="488" alt="03-email-header-authentication-results" src="https://github.com/user-attachments/assets/4bb8746d-3fa9-49b6-8845-778990279247" />
 
 ### 3. Attachment Analysis
+> **Safety Note:** All attachment analysis and file extraction were performed inside an isolated Windows virtual machine.
 
 The raw email contained an attachment named `PuzzleToCoCanDa.pdf`. Its MIME headers declared the file as an `application/pdf`, and the attachment content was encoded using Base64.
 
 <img width="684" height="284" alt="04-attachment-mime-base64" src="https://github.com/user-attachments/assets/dd119098-8680-4fa1-a8e4-7226c73f07f9" />
 
+---
+
 To verify the attachment's true file type, I copied the Base64-encoded attachment data into CyberChef. I then used the `From Base64` operation followed by `To Hex` to examine the file's first four bytes.
 
 <img width="1294" height="723" alt="05-attachment-file-signature-cyberchef" src="https://github.com/user-attachments/assets/df7567e2-f5bb-4b23-93c9-53148c2f7063" />
 
-The decoded file began with the hexadecimal signature:
+---
 
-```text
-50 4B 03 04
-```
+The decoded file began with the hexadecimal signature: `50 4B 03 04`
 
 According to Gary Kessler’s file-signature reference, `50 4B 03 04` is associated with ZIP and other ZIP-based archive formats.
 
 <img width="1035" height="677" alt="06-zip-file-signature-reference" src="https://github.com/user-attachments/assets/fde67fb7-7a42-4409-9f4a-eb8c439b922d" />
 
-For comparison, a typical PDF file begins with the hexadecimal signature:
+---
 
-```text
-25 50 44 46
-```
-
-which represents `%PDF`.
+For comparison, a typical PDF file begins with the hexadecimal signature: `25 50 44 46` which represents `%PDF`.
 
 <img width="1039" height="473" alt="07-pdf-file-signature-reference" src="https://github.com/user-attachments/assets/801da4ed-f6c6-48d2-800f-4e331c635258" />
 
