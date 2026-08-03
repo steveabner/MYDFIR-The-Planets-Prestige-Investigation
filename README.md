@@ -24,7 +24,7 @@ The investigation begins with an analysis of that email to determine whether it 
 
 - Notepad++
 - CyberChef
-- Gary Kessler's File Signature Table
+- Gary Kessler's File Signature Database
 
 ## Investigation Process
 
@@ -61,7 +61,7 @@ The decoded message contained a ransom demand and instructed the recipient to so
 
 - The Reply-To address does not match the visible sender address.
 - SPF failed because the sending IP was not authorized to send mail for `microapple[.]com`.
-- The email contains a Base64-encoded PDF attachment.
+- The email contains a Base64-encoded attachment presented as a PDF file.
 
 ### 2. Email Header Analysis
 
@@ -91,7 +91,7 @@ According to Gary Kessler’s file-signature reference, `50 4B 03 04` is associa
 
 <img width="1035" height="677" alt="06-zip-file-signature-reference" src="https://github.com/user-attachments/assets/fde67fb7-7a42-4409-9f4a-eb8c439b922d" />
 
-For comparison, a genuine PDF normally begins with the hexadecimal signature:
+For comparison, a typical PDF file begins with the hexadecimal signature:
 
 ```text
 25 50 44 46
@@ -110,7 +110,7 @@ which represents `%PDF`.
 - **Identified file type:** ZIP-based archive
 - **Finding:** The attachment’s actual file type does not match its `.pdf` extension or declared MIME type.
 
-This mismatch indicates that the attachment was disguised as a PDF. Because the file type did not match the declared extension, I continued to treat the attachment as suspicious and did not open it directly on the host system.
+This mismatch shows that the attachment was presented as a PDF even though its file signature identified it as a ZIP-based archive. Because the actual file type did not match the declared extension, I continued to treat the attachment as suspicious and did not open it directly on the host system.
 
 <!--
 
