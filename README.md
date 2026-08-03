@@ -20,43 +20,52 @@ Despite an extensive search, investigators received no ransom demand, communicat
 
 The investigation begins with an analysis of that email to determine whether it contains information connected to the disappearances.
 
-<!--
-
 ## Tools Used
 
-Add the tools you use during the investigation.
-
-Examples may include:
-
-* Text editor
-* Email-header analyzer
-* WHOIS lookup
-* VirusTotal
-* CyberChef
-* URL-analysis tools
-* Hash-analysis tools
-
-Only list tools you actually used.
+- Notepad++
+- CyberChef
 
 ## Investigation Process
 
 ### 1. Initial Review
 
-Document your initial observations about the email and provided evidence.
+The provided evidence was an `.eml` file named `A Hope to CoCanDa.eml`. I opened the file in Notepad++ to review the raw email contents, including the headers, MIME structure, encoded message body, and attachment information.
 
-Include details such as:
+The email was identified as a multipart MIME message containing a Base64-encoded plain-text body.
 
-* Sender
-* Recipient
-* Subject
-* Date and time
-* Attachments
-* Links
-* Suspicious wording or formatting
+<img width="717" height="407" alt="01-email-mime-base64-body" src="https://github.com/user-attachments/assets/49f7a908-5032-43d3-ba86-5afa6b6850d8" />
+
+The Base64-encoded message body was copied into CyberChef and decoded using the `From Base64` operation.
+
+<img width="2034" height="806" alt="02-cyberchef-decoded-email-body" src="https://github.com/user-attachments/assets/25667a4b-6f0a-4b83-a0c3-0a22251b761c" />
+
+The decoded message contained a ransom demand and instructed the recipient to solve an attached puzzle for further information. The phrase `Don't Trust Your Eyes` appeared to be an important clue for analyzing the attachment.
+
+#### Initial Email Details
+> **Note:** Potentially malicious domains, URLs, email addresses, and IP addresses have been defanged to prevent accidental access.
+
+- **Filename:** `A Hope to CoCanDa.eml`
+- **Sender:** `billjobs[@]microapple[.]com`
+- **Recipient:** `themajoronearth@gmail.com`
+- **Subject:** `A Hope to CoCanDa`
+- **Date:** `Tue, 26 Jan 2021 01:41:18 -0500 (EST)`
+- **Reply-To:** `negeja3921[@]pashter[.]com`
+- **Return-Path:** `billjobs[@]microapple[.]com`
+- **Message-ID:** `20210126064118.1993E221F8@localhost`
+- **Attachment:** `PuzzleToCoCanDa.pdf`
+- **Sending IP:** `93[.]99[.]104[.]210`
+- **SPF Result:** Fail
+
+#### Initial Observations
+
+- The Reply-To address does not match the visible sender address.
+- SPF failed because the sending IP was not authorized to send mail for `microapple[.]com`.
+- The email contains a Base64-encoded PDF attachment.
 
 ### 2. Email Header Analysis
 
-Document the important header information you identified.
+
+<!--
 
 Review items such as:
 
@@ -176,3 +185,5 @@ Screenshots should demonstrate the investigative process without exposing protec
 This project was completed for educational and professional-development purposes.
 
 The challenge belongs to Blue Team Labs Online. This repository documents my investigative process and is not intended to distribute protected challenge answers or flags.
+
+-->
