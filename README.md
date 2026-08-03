@@ -136,7 +136,7 @@ The decoded Base64 output was saved as `email_attachment.zip`.
 
 The archive was extracted inside the virtual machine.
 
-<img width="1214" height="828" alt="Extracting the downloaded ZIP archive" src="https://github.com/user-attachments/assets/a8252f4f-cd7c-4357-ae32-8bcf8c87169f" />
+<img width="1214" height="828" alt="09-email-attachment-zip-extraction" src="https://github.com/user-attachments/assets/54681136-87b6-446d-8cfe-7389e166005c" />
 
 The extracted archive contained a folder named `PuzzleToCoCanDa`.
 
