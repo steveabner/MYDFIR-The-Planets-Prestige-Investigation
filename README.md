@@ -26,6 +26,7 @@ The investigation begins with an analysis of that email to determine whether it 
 - Notepad++
 - CyberChef
 - Gary Kessler's File Signature Database
+- HxD
 
 ## Investigation Process
 
