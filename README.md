@@ -24,6 +24,7 @@ The investigation begins with an analysis of that email to determine whether it 
 
 - Notepad++
 - CyberChef
+- Gary Kessler's File Signature Table
 
 ## Investigation Process
 
@@ -70,48 +71,48 @@ The visible sender was `billjobs[@]microapple[.]com`, while the Reply-To address
 
 <img width="839" height="488" alt="03-email-header-authentication-results" src="https://github.com/user-attachments/assets/4bb8746d-3fa9-49b6-8845-778990279247" />
 
+### 3. Attachment Analysis
+
+The raw email contained an attachment named `PuzzleToCoCanDa.pdf`. Its MIME headers declared the file as an `application/pdf`, and the attachment content was encoded using Base64.
+
+<img width="684" height="284" alt="04-attachment-mime-base64" src="https://github.com/user-attachments/assets/dd119098-8680-4fa1-a8e4-7226c73f07f9" />
+
+To verify the attachment's true file type, I copied the Base64-encoded attachment data into CyberChef. I then used the `From Base64` operation followed by `To Hex` to examine the file's first four bytes.
+
+<img width="1294" height="723" alt="05-attachment-file-signature-cyberchef" src="https://github.com/user-attachments/assets/df7567e2-f5bb-4b23-93c9-53148c2f7063" />
+
+The decoded file began with the hexadecimal signature:
+
+```text
+50 4B 03 04
+```
+
+According to Gary Kessler’s file-signature reference, `50 4B 03 04` is associated with ZIP and other ZIP-based archive formats.
+
+<img width="1035" height="677" alt="06-zip-file-signature-reference" src="https://github.com/user-attachments/assets/fde67fb7-7a42-4409-9f4a-eb8c439b922d" />
+
+For comparison, a genuine PDF normally begins with the hexadecimal signature:
+
+```text
+25 50 44 46
+```
+
+which represents `%PDF`.
+
+<img width="1039" height="473" alt="07-pdf-file-signature-reference" src="https://github.com/user-attachments/assets/801da4ed-f6c6-48d2-800f-4e331c635258" />
+
+#### Attachment Findings
+
+- **Declared filename:** `PuzzleToCoCanDa.pdf`
+- **Declared content type:** `application/pdf`
+- **Transfer encoding:** Base64
+- **Observed file signature:** `50 4B 03 04`
+- **Identified file type:** ZIP-based archive
+- **Finding:** The attachment’s actual file type does not match its `.pdf` extension or declared MIME type.
+
+This mismatch indicates that the attachment was disguised as a PDF. Because the file type did not match the declared extension, I continued to treat the attachment as suspicious and did not open it directly on the host system.
 
 <!--
-
-Review items such as:
-
-* From
-* Reply-To
-* Return-Path
-* Received headers
-* Sending IP address
-* Message ID
-* SPF results
-* DKIM results
-* DMARC results
-
-### 3. Link and Domain Analysis
-
-Document any domains or URLs discovered during the investigation.
-
-Include:
-
-* Domain names
-* Full URLs
-* Redirects
-* Registration information
-* Reputation results
-* Suspicious characteristics
-
-### 4. Attachment Analysis
-
-Document any attachments examined during the investigation.
-
-Include:
-
-* Filename
-* File type
-* File size
-* File hash
-* Analysis results
-* Suspicious behavior or characteristics
-
-Do not open potentially malicious files directly on your main computer.
 
 ### 5. Findings
 
