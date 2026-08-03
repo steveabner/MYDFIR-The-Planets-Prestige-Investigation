@@ -114,6 +114,55 @@ For comparison, a typical PDF begins with: `25 50 44 46` which represents `%PDF`
 
 </details>
 
+#### Archive Extraction
+
+After confirming that the attachment was a ZIP-based archive, I removed the `To Hex` operation from CyberChef and saved the decoded output as `email_attachment.zip`.
+
+The archive contained a folder named `PuzzleToCoCanDa`, which contained two files:
+
+- `DaughtersCrown`
+- `GoodJobMajor`
+
+The files were not opened directly. Their actual file types and contents still needed to be verified.
+
+<details>
+<summary><strong>▶ Click to expand: Archive extraction steps</strong></summary>
+
+<br>
+
+The decoded Base64 output was saved as `email_attachment.zip`.
+
+<img width="1514" height="843" alt="Saving the decoded archive from CyberChef" src="https://github.com/user-attachments/assets/e5c79729-4e82-4a7a-a6ff-a381e37ce7ba" />
+
+The archive was extracted inside the virtual machine.
+
+<img width="1214" height="828" alt="Extracting the downloaded ZIP archive" src="https://github.com/user-attachments/assets/a8252f4f-cd7c-4357-ae32-8bcf8c87169f" />
+
+The extracted archive contained a folder named `PuzzleToCoCanDa`.
+
+<img width="1215" height="736" alt="Extracted PuzzleToCoCanDa folder" src="https://github.com/user-attachments/assets/d13cd895-e272-4922-a0b5-3e1a2f1d3a68" />
+
+Inside the folder were the files `DaughtersCrown` and `GoodJobMajor`.
+
+<img width="1270" height="774" alt="Files extracted from the archive" src="https://github.com/user-attachments/assets/29f8aa77-a594-4bf8-aee7-21810d2c1a6a" />
+
+#### Hidden File Discovery
+
+While reviewing the extracted folder, I enabled **Hidden items** in Windows File Explorer. This revealed an additional file named `Money.xlsx` that was not visible by default.
+
+<img width="1247" height="734" alt="12-hidden-money-xlsx-discovered" src="https://github.com/user-attachments/assets/5e30c064-e303-4bd4-ab78-e35937b88125" />
+
+The extracted folder therefore contained three files:
+
+- `DaughtersCrown`
+- `GoodJobMajor`
+- `Money.xlsx` — hidden
+
+The hidden status of `Money.xlsx` increased its relevance to the investigation and warranted further file-type and content analysis.
+
+</details>
+
+
 <!--
 
 ### 5. Findings
