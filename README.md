@@ -420,3 +420,10 @@ By analyzing the raw email, decoding Base64 content, verifying file signatures, 
 `The Martian Colony, Beside Interplanetary Spaceport.`
 
 The findings were validated against the Blue Team Labs Online challenge, and the investigation was completed successfully.
+
+## Challenge Completion
+
+The investigation findings were successfully validated, and **The Planet’s Prestige** challenge was completed on August 4, 2026.
+
+<img width="802" height="616" alt="28-the-planets-prestige-completion" src="https://github.com/user-attachments/assets/759b9dd7-9f24-4304-8225-30a8c37135c0" />
+
