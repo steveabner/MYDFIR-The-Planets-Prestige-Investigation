@@ -27,6 +27,8 @@ The investigation begins with an analysis of that email to determine whether it 
 - CyberChef
 - Gary Kessler's File Signature Database
 - HxD
+- LibreOffice Calc
+- ExifTool
 
 ## Investigation Process
 
