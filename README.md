@@ -269,3 +269,68 @@ After confirming the file type, I opened the PDF inside the isolated Windows vir
 - **Identified file type:** PDF
 - **Renamed file:** `GoodJobMajor.pdf`
 - **Observed content:** Message indicating the CoCanDians are safe, referencing `DaughtersCrown` as proof, and directing the ransom location to `Money.xlsx`
+
+#### Money.xlsx
+
+The hidden file `Money.xlsx` already included a file extension, but I still inspected it in HxD to verify that the file signature matched the declared spreadsheet format.
+
+The first four bytes were `50 4B 03 04`.
+
+According to Gary Kessler’s file-signature reference, this signature is associated with Microsoft Office Open XML files, including `.xlsx` spreadsheets.
+
+<details>
+<summary><strong>▶ Click to expand: Money.xlsx file-signature verification</strong></summary>
+
+<br>
+
+The file was inspected in HxD, where the first four bytes were identified as `50 4B 03 04`.
+
+<img width="836" height="376" alt="21-money-xlsx-file-signature-hxd" src="https://github.com/user-attachments/assets/b456e69a-04f0-471e-80c7-edf2967bd6ff" />
+
+The signature was compared with Gary Kessler’s file-signature reference and matched the Microsoft Office Open XML format used by `.xlsx` files.
+
+<img width="1097" height="542" alt="22-xlsx-file-signature-reference" src="https://github.com/user-attachments/assets/7fd1a2ec-f280-40ce-850d-2d5a3311fb28" />
+
+</details>
+
+After confirming the file type, I opened `Money.xlsx` using LibreOffice Calc inside the isolated Windows virtual machine.
+
+> **Analysis Note:** In a production environment, a disposable cloud-based file viewer or dedicated malware-analysis sandbox would be preferable for inspecting an untrusted spreadsheet. For this lab, I used LibreOffice Calc inside an isolated Windows virtual machine.
+
+The first worksheet contained a message stating that the earlier information was false and that the attackers intended to begin a war with the CoCanDians.
+
+<details>
+<summary><strong>▶ Click to expand: Money.xlsx first worksheet</strong></summary>
+
+<br>
+
+<img width="1255" height="744" alt="23-money-xlsx-sheet1-message" src="https://github.com/user-attachments/assets/cd080d57-ea1e-4b93-a5df-57f70d80ab6e" />
+
+</details>
+
+A second visible worksheet, named `Sheet3`, initially appeared empty. After clearing the cell formatting, I discovered text that had been concealed by its formatting.
+
+<details>
+<summary><strong>▶ Click to expand: Hidden text discovery in Sheet3</strong></summary>
+
+<br>
+
+The worksheet initially appeared blank.
+
+<img width="1258" height="745" alt="24-money-xlsx-sheet3-blank" src="https://github.com/user-attachments/assets/fb8f1323-81ca-4362-b230-4ebe73a5a1cb" />
+
+After clearing the formatting, an encoded string became visible.
+
+<img width="1254" height="747" alt="25-money-xlsx-sheet3-hidden-text-revealed" src="https://github.com/user-attachments/assets/9d139727-93b7-4fe1-9aad-ca05cbae7bec" />
+
+</details>
+
+#### Money.xlsx Findings
+
+- **Filename:** `Money.xlsx`
+- **Observed file signature:** `50 4B 03 04`
+- **Verified file type:** Microsoft Excel Open XML spreadsheet
+- **Visible worksheets:** `Sheet1` and `Sheet3`
+- **Sheet1 content:** Message claiming the previous information was false and threatening war with the CoCanDians
+- **Sheet3 content:** Encoded text concealed through cell formatting
+- **Next step:** Identify the encoding and decode the concealed text
