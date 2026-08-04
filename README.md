@@ -6,7 +6,7 @@ This repository documents my investigation of **The Planet’s Prestige**, an em
 
 **Platform:** [Blue Team Labs Online](https://blueteamlabs.online/home/challenge/the-planets-prestige-e5beb8e545)<br>
 **Project Type:** Email Investigation<br>
-**Status:** In Progress
+**Status:** Completed
 
 ## Objective
 
@@ -270,6 +270,37 @@ After confirming the file type, I opened the PDF inside the isolated Windows vir
 - **Renamed file:** `GoodJobMajor.pdf`
 - **Observed content:** Message indicating the CoCanDians are safe, referencing `DaughtersCrown` as proof, and directing the ransom location to `Money.xlsx`
 
+#### Metadata Analysis
+
+I used ExifTool to inspect the metadata of `GoodJobMajor.pdf`. The PDF’s `Author` field contained the first and last name requested in the investigation.
+
+<details>
+<summary><strong>⚠️ Click to reveal retired-lab answer and metadata evidence</strong></summary>
+
+<br>
+
+<img width="976" height="475" alt="27-goodjobmajor-exiftool-metadata" src="https://github.com/user-attachments/assets/b2462301-a0f9-47ea-9c6a-f700da84f3b7" />
+
+#### Metadata Findings
+
+- **Analyzed file:** `GoodJobMajor.pdf`
+- **Author:** `Pestero Negeja`
+- **Producer:** `Skia/PDF m90`
+- **Page count:** 1
+
+The author metadata identified `Pestero Negeja` as the likely creator of the PDF and provided the name requested in the investigation.
+
+</details>
+
+#### Metadata Findings
+
+- **Analyzed file:** `GoodJobMajor.pdf`
+- **Author:** `Pestero Negeja`
+- **Producer:** `Skia/PDF m90`
+- **Page count:** 1
+
+The author metadata provided the attacker’s first and last name.
+
 #### Money.xlsx
 
 The hidden file `Money.xlsx` already included a file extension, but I still inspected it in HxD to verify that the file signature matched the declared spreadsheet format.
@@ -351,3 +382,41 @@ This finding identified the location referenced in `GoodJobMajor.pdf` and provid
 - **Sheet1 content:** Message claiming the previous information was false and threatening war with the CoCanDians
 - **Sheet3 content:** Base64-encoded text concealed through cell formatting
 - **Decoded location:** `The Martian Colony, Beside Interplanetary Spaceport.`
+
+### 5. Findings Summary
+
+The investigation began with a suspicious `.eml` file containing a ransom message and an attachment presented as `PuzzleToCoCanDa.pdf`.
+
+Analysis of the email headers identified several suspicious indicators:
+
+- The message failed SPF authentication.
+- The visible sender and Reply-To addresses used different domains.
+- The attachment was Base64-encoded and presented as a PDF.
+
+File-signature analysis showed that the attachment was actually a ZIP-based archive. After decoding and extracting the archive inside an isolated Windows virtual machine, three files were discovered:
+
+- `DaughtersCrown`
+- `GoodJobMajor`
+- `Money.xlsx`, which was hidden
+
+Further analysis identified the files as:
+
+- `DaughtersCrown` — JPEG image showing a crown
+- `GoodJobMajor` — PDF containing additional instructions
+- `Money.xlsx` — Excel spreadsheet containing a hidden Base64-encoded message
+
+The concealed Base64 content in `Money.xlsx` decoded to:
+
+`The Martian Colony, Beside Interplanetary Spaceport.`
+
+This location represented the final lead uncovered during the investigation.
+
+## Conclusion
+
+The email was malicious and used sender spoofing, failed email authentication, misleading file extensions, hidden files, and encoded content to conceal the attacker’s instructions.
+
+By analyzing the raw email, decoding Base64 content, verifying file signatures, extracting the disguised archive, and examining the recovered files, I identified the location provided by the attacker:
+
+`The Martian Colony, Beside Interplanetary Spaceport.`
+
+The findings were validated against the Blue Team Labs Online challenge, and the investigation was completed successfully.
