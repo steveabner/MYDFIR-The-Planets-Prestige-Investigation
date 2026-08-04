@@ -338,9 +338,7 @@ The encoded string revealed in `Sheet3` was copied into CyberChef and decoded us
 
 </details>
 
-The decoded message revealed the following location:
-
-`The Martian Colony, Beside Interplanetary Spaceport.`
+The decoded message revealed the following location: `The Martian Colony, Beside Interplanetary Spaceport.`
 
 This finding identified the location referenced in `GoodJobMajor.pdf` and provided the next lead in the investigation.
 
