@@ -269,7 +269,3 @@ After confirming the file type, I opened the PDF inside the isolated Windows vir
 - **Identified file type:** PDF
 - **Renamed file:** `GoodJobMajor.pdf`
 - **Observed content:** Message indicating the CoCanDians are safe, referencing `DaughtersCrown` as proof, and directing the ransom location to `Money.xlsx`
-
-
-
--->
