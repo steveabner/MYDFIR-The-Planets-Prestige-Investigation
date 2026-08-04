@@ -325,6 +325,25 @@ After clearing the formatting, an encoded string became visible.
 
 </details>
 
+#### Base64 Decoding
+
+The encoded string revealed in `Sheet3` was copied into CyberChef and decoded using the `From Base64` operation.
+
+<details>
+<summary><strong>▶ Click to expand: Base64 decoding of the concealed Sheet3 text</strong></summary>
+
+<br>
+
+<img width="1420" height="637" alt="26-money-xlsx-sheet3-base64-decoded" src="https://github.com/user-attachments/assets/77ecce47-9dfb-4b9f-97dd-b662c72c1b0c" />
+
+</details>
+
+The decoded message revealed the following location:
+
+`The Martian Colony, Beside Interplanetary Spaceport.`
+
+This finding identified the location referenced in `GoodJobMajor.pdf` and provided the next lead in the investigation.
+
 #### Money.xlsx Findings
 
 - **Filename:** `Money.xlsx`
@@ -332,5 +351,5 @@ After clearing the formatting, an encoded string became visible.
 - **Verified file type:** Microsoft Excel Open XML spreadsheet
 - **Visible worksheets:** `Sheet1` and `Sheet3`
 - **Sheet1 content:** Message claiming the previous information was false and threatening war with the CoCanDians
-- **Sheet3 content:** Encoded text concealed through cell formatting
-- **Next step:** Identify the encoding and decode the concealed text
+- **Sheet3 content:** Base64-encoded text concealed through cell formatting
+- **Decoded location:** `The Martian Colony, Beside Interplanetary Spaceport.`
