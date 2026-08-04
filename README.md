@@ -216,86 +216,60 @@ After confirming the file type, I opened the image inside the isolated Windows v
 - **Renamed file:** `DaughtersCrown.jpeg`
 - **Observed content:** Image of a crown
 
+#### GoodJobMajor
 
-<!--
+The extracted file `GoodJobMajor` did not include a file extension, so I opened it in HxD to inspect its file signature before attempting to open it.
 
-### 5. Findings
+The first four bytes were `25 50 44 46`.
 
-Summarize the important evidence discovered during the investigation.
+According to Gary Kessler’s file-signature reference, `25 50 44 46` is associated with a PDF file.
 
-* Finding 1
-* Finding 2
-* Finding 3
+<details>
+<summary><strong>▶ Click to expand: GoodJobMajor file-signature verification</strong></summary>
 
-## Indicators of Compromise
+<br>
 
-| Indicator     | Type                                      | Description                  |
-| ------------- | ----------------------------------------- | ---------------------------- |
-| Add indicator | Email, IP, domain, URL, hash, or filename | Explain why it is suspicious |
+The file was inspected in HxD, where the first four bytes were identified as `25 50 44 46`.
 
-## Timeline
+<img width="840" height="473" alt="17-goodjobmajor-file-signature-hxd" src="https://github.com/user-attachments/assets/5f1fac7c-f149-472e-b141-fcc5ff257e16" />
 
-| Time          | Event                  |
-| ------------- | ---------------------- |
-| Add timestamp | Describe what occurred |
+The signature was then compared with Gary Kessler’s file-signature reference and matched the standard PDF signature.
 
-## MITRE ATT&CK Mapping
+<img width="1088" height="437" alt="18-pdf-file-signature-reference" src="https://github.com/user-attachments/assets/96af82ef-707a-4850-ae6f-005c0a264ebe" />
 
-Only include techniques that are supported by the evidence.
+</details>
 
-| Technique        | Name               | Evidence                                          |
-| ---------------- | ------------------ | ------------------------------------------------- |
-| Add technique ID | Add technique name | Explain how the evidence relates to the technique |
+After verifying the file type, I renamed the file from `GoodJobMajor` to `GoodJobMajor.pdf`.
 
-## Conclusion
+<details>
+<summary><strong>▶ Click to expand: Renamed PDF file</strong></summary>
 
-Provide your final assessment of the investigation.
+<br>
 
-Explain:
+<img width="914" height="441" alt="19-goodjobmajor-renamed-pdf" src="https://github.com/user-attachments/assets/e1578a11-0380-40aa-85bb-a154c2ac768c" />
 
-* Whether the email was malicious, suspicious, or legitimate
-* What the suspected attacker attempted to accomplish
-* Which evidence supports your conclusion
-* Whether further investigation or escalation would be required
+</details>
 
-## Recommended Actions
+After confirming the file type, I opened the PDF inside the isolated Windows virtual machine. The document stated that the CoCanDians were safe, referenced the `DaughtersCrown` file as proof, and indicated that the location to send 1 Billion CoCanDs was in `Money.xlsx`.
 
-Document the containment and remediation actions you would recommend.
+<details>
+<summary><strong>▶ Click to expand: GoodJobMajor PDF content</strong></summary>
 
-Examples may include:
+<br>
 
-* Block identified domains, URLs, or IP addresses
-* Remove the email from affected mailboxes
-* Reset compromised account credentials
-* Review account sign-in activity
-* Isolate affected systems
-* Scan attachments and endpoints
-* Notify affected users
-* Update detection rules
+<img width="812" height="578" alt="20-goodjobmajor-pdf-content" src="https://github.com/user-attachments/assets/050c2afe-7349-4d78-b57c-fb256acb0962" />
 
-Only include recommendations relevant to your findings.
+</details>
 
-## Skills Practiced
+#### GoodJobMajor Findings
 
-* Email and phishing analysis
-* Email-header analysis
-* Indicator identification
-* Evidence collection
-* Investigation documentation
-* Threat analysis
-* MITRE ATT&CK mapping
-* Remediation planning
+- **Original filename:** `GoodJobMajor`
+- **Original extension:** None
+- **Observed file signature:** `25 50 44 46`
+- **Identified file type:** PDF
+- **Renamed file:** `GoodJobMajor.pdf`
+- **Observed content:** Message indicating the CoCanDians are safe, referencing `DaughtersCrown` as proof, and directing the ransom location to `Money.xlsx`
 
-## Screenshots
 
-Supporting screenshots will be included throughout the investigation where appropriate.
-
-Screenshots should demonstrate the investigative process without exposing protected challenge answers, flags, or unnecessary sensitive information.
-
-## Disclaimer
-
-This project was completed for educational and professional-development purposes.
-
-The challenge belongs to Blue Team Labs Online. This repository documents my investigative process and is not intended to distribute protected challenge answers or flags.
 
 -->
