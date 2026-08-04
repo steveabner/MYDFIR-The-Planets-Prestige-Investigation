@@ -160,6 +160,62 @@ The hidden status of `Money.xlsx` increased its relevance to the investigation a
 
 </details>
 
+### 4. Extracted File Analysis
+
+#### DaughtersCrown
+
+The extracted file `DaughtersCrown` did not include a file extension, so I opened it in HxD to inspect its file signature before attempting to open it.
+
+The first four bytes were `FF D8 FF E0`.
+
+According to Gary Kessler’s file-signature reference, `FF D8 FF E0` is associated with a standard JPEG/JFIF image.
+
+<details>
+<summary><strong>▶ Click to expand: DaughtersCrown file-signature verification</strong></summary>
+
+<br>
+
+The file was inspected in HxD, where the first four bytes were identified as `FF D8 FF E0`.
+
+<img width="836" height="676" alt="13-daughterscrown-file-signature-hxd" src="https://github.com/user-attachments/assets/3fe18e81-ff81-4923-b605-9ddbdfb5ef15" />
+
+The signature was then compared with Gary Kessler’s file-signature reference and matched the standard JPEG/JFIF signature.
+
+<img width="1096" height="561" alt="14-jpeg-file-signature-reference" src="https://github.com/user-attachments/assets/bcf692e8-ab3d-4973-9a54-5fcfe609f7d9" />
+
+</details>
+
+After verifying the file type, I renamed the file from `DaughtersCrown` to `DaughtersCrown.jpeg`.
+
+<details>
+<summary><strong>▶ Click to expand: Renamed JPEG file</strong></summary>
+
+<br>
+
+<img width="894" height="452" alt="15-daughterscrown-renamed" src="https://github.com/user-attachments/assets/d10e9c9c-9f1a-4c3c-a374-680ce21e9061" />
+
+</details>
+
+After confirming the file type, I opened the image inside the isolated Windows virtual machine. The image displayed a crown graphic.
+
+<details>
+<summary><strong>▶ Click to expand: DaughtersCrown image</strong></summary>
+
+<br>
+
+<img width="1171" height="881" alt="16-daughterscrown-image" src="https://github.com/user-attachments/assets/bc938d70-2fe3-4523-b670-6ef273c4d1e4" />
+
+</details>
+
+#### DaughtersCrown Findings
+
+- **Original filename:** `DaughtersCrown`
+- **Original extension:** None
+- **Observed file signature:** `FF D8 FF E0`
+- **Identified file type:** JPEG/JFIF image
+- **Renamed file:** `DaughtersCrown.jpeg`
+- **Observed content:** Image of a crown
+
 
 <!--
 
