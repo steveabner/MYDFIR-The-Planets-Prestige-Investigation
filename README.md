@@ -307,7 +307,7 @@ The author metadata identified `Pestero Negeja` as the likely creator of the PDF
 - **Producer:** `Skia/PDF m90`
 - **Page count:** 1
 
-The author metadata provided the attacker’s first and last name.
+The author metadata identified Pestero Negeja as the likely document creator.
 
 #### Money.xlsx
 
