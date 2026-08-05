@@ -2,6 +2,12 @@
 
 This repository documents my investigation of **The Planet’s Prestige**, an email investigation challenge from Blue Team Labs Online completed as part of the MYDFIR Forge.
 
+## Investigation Report
+
+A shorter, formal version of this investigation is available for SOC leads and managers.
+
+[View the formal investigation report](Report.md)
+
 ## Project Information
 
 **Platform:** [Blue Team Labs Online](https://blueteamlabs.online/home/challenge/the-planets-prestige-e5beb8e545)<br>
